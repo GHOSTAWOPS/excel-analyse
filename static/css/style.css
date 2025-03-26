@@ -1,0 +1,327 @@
+/* 主要样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+/* 参数节点样式 */
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+    stroke: #fff;
+    stroke-width: 2px;
+}
+
+.node text {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* 输入参数: 蓝色 */
+.node.input-param circle {
+    fill: #4682B4; /* Steel Blue */
+}
+
+/* 中间参数: 绿色 */
+.node.intermediate-param circle {
+    fill: #3CB371; /* Medium Sea Green */
+}
+
+/* 输出参数: 红色 */
+.node.output-param circle {
+    fill: #CD5C5C; /* Indian Red */
+}
+
+/* 连接线样式 */
+.link {
+    fill: none;
+    stroke: #999;
+    stroke-opacity: 0.6;
+    stroke-width: 1.5px;
+}
+
+/* 高亮依赖链 */
+.link.highlighted {
+    stroke: #FFD700;
+    stroke-width: 2.5px;
+}
+
+.node.highlighted circle {
+    stroke: #FFD700;
+    stroke-width: 3px;
+}
+
+/* 侧边栏样式 */
+.sidebar {
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    overflow-y: auto;
+    padding-right: 0;
+}
+
+/* 主内容区样式 */
+.main-content {
+    height: 100vh;
+    overflow-y: auto;
+}
+
+/* 可视化容器 */
+#visualization-container {
+    width: 100%;
+    height: 500px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* 参数列表样式 */
+.list-group-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.list-group-item.active {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* 参数详情样式 */
+#param-details {
+    min-height: 200px;
+}
+
+.param-formula {
+    padding: 15px 20px;
+    background-color: #f0f8ff;
+    border: 1px solid #cce5ff;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.param-value {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.param-reference {
+    color: #0066cc;
+    font-weight: 600;
+    text-decoration: none;
+    background-color: #e7f1ff;
+    padding: 3px 6px;
+    border-radius: 4px;
+    border: 1px solid #c9e2ff;
+    transition: all 0.2s ease;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+.param-reference:hover {
+    background-color: #d0e5ff;
+    text-decoration: none;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 3px rgba(0,102,204,0.15);
+}
+
+/* 计算表单样式 */
+#calculation-form label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#calculation-form .form-group {
+    margin-bottom: 10px;
+}
+
+/* 计算相关样式 */
+.param-input {
+    font-size: 1rem;
+}
+
+.calculation-result {
+    color: #007bff;
+    font-weight: bold;
+    padding: 0.15rem 0.5rem;
+    background-color: #f8f9fa;
+    border-radius: 0.25rem;
+    display: inline-block;
+    min-width: 60px;
+    text-align: right;
+}
+
+.badge {
+    font-size: 90%;
+    padding: 0.3em 0.6em;
+    margin-left: 5px;
+}
+
+/* 参数分类颜色标识 */
+.input-param-badge {
+    background-color: #4682B4;
+    color: white;
+}
+
+.intermediate-param-badge {
+    background-color: #3CB371;
+    color: white;
+}
+
+.output-param-badge {
+    background-color: #CD5C5C;
+    color: white;
+}
+
+/* 循环依赖警告 */
+.circular-dependency-warning {
+    background-color: #FFF3CD;
+    color: #856404;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .sidebar, .main-content {
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    #visualization-container {
+        height: 350px;
+    }
+}
+
+/* 参数表格样式 */
+.param-table {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+.param-table td {
+    padding: 6px 8px;
+    vertical-align: middle;
+}
+
+.param-table .param-label {
+    max-width: 60%;
+}
+
+.param-table .param-input-cell {
+    width: 40%;
+}
+
+.param-table input[readonly] {
+    background-color: #f8f9fa;
+}
+
+.param-table input.form-control-sm {
+    height: calc(1.5em + 0.5rem + 2px);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.param-table a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.param-table a:hover {
+    text-decoration: underline;
+}
+
+/* 表格内的错误提示 */
+.param-error {
+    color: #dc3545;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+}
+
+/* 错误状态表单 */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+/* 增加参数类型的样式 */
+tr.input-param .param-label {
+    border-left: 3px solid #4682B4;
+    padding-left: 8px;
+}
+
+tr.intermediate-param .param-label {
+    border-left: 3px solid #3CB371;
+    padding-left: 8px;
+}
+
+tr.output-param .param-label {
+    border-left: 3px solid #CD5C5C;
+    padding-left: 8px;
+}
+
+/* 公式显示相关样式 */
+.param-formula-section {
+    margin-bottom: 15px;
+}
+
+.formula-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    border-left: 4px solid #3498db;
+    padding-left: 10px;
+    display: block;
+}
+
+.original-formula {
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.original-formula sup {
+    color: #dc3545;
+    font-size: 70%;
+}
+
+/* 参数类型标识颜色 */
+.text-input-param {
+    color: #4682B4;
+}
+
+.text-intermediate-param {
+    color: #3CB371;
+}
+
+.text-output-param {
+    color: #CD5C5C;
+} 
